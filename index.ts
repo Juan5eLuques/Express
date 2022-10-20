@@ -1,11 +1,13 @@
 import express from "express";
 import bodyParser from "body-parser";
 import { Product } from "types/Product";
+const cors = require('cors')
 
 const app = express();
 
-app.use(bodyParser.json());
 
+app.use(bodyParser.json());
+app.use(cors())
 
 const product : Product[] =  [
     {

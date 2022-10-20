@@ -1,6 +1,6 @@
 import { Product } from "types/Product"
 
-export const data : Product [] = [
+export default const data : Product [] = [
 {
     id:1,
     name:'Televisor',
