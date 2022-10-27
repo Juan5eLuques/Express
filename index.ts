@@ -18,23 +18,23 @@ app.get("/product/all", (_req, res) => {
 });
 
 app.post("/product/add", (req, res) => {
-  const { name, marca, stock } = req.body;
+  const { name, marca, stock, description } = req.body;
   try {
     if (!name || !marca) throw new Error("Name or Marca is empty");
-    res.status(200).json(addProduct({name,marca,stock}, products));
+    res.status(200).json(addProduct({name,marca,stock,description}, products));
   } catch (err) {
     return res.status(400).json({ message: err.message });
   }
 });
 
 app.put("/product/edit", (req, res) => {  
-  const { name, marca, id } = req.body;
+  const { name, marca, id, description } = req.body;
   const index = products.findIndex(product => product.id === id);
 
   if (index === -1)
     return res.status(400).json({ message: "Product not found - 400" });
 
-    products[index] = { ...products[index], name, marca };
+    products[index] = { ...products[index], name, marca,description};
   res.status(200).json(products[index]);
 });
 
