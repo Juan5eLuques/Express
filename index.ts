@@ -28,13 +28,13 @@ app.post("/product/add", (req, res) => {
 });
 
 app.put("/product/edit", (req, res) => {  
-  const { name, marca, id, description } = req.body;
+  const { name, marca, id, description, stock} = req.body;
   const index = products.findIndex(product => product.id === id);
 
   if (index === -1)
     return res.status(400).json({ message: "Product not found - 400" });
 
-    products[index] = { ...products[index], name, marca,description};
+    products[index] = { ...products[index], name, marca,description,stock};
   res.status(200).json(products[index]);
 });
 
