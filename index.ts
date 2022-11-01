@@ -17,7 +17,7 @@ app.get("/product/all", (_req, res) => {
   res.status(200).json(products);
 });
 
-app.post("/add", (req, res) => {
+app.post("/product/add", (req, res) => {
   const { name, marca, stock, description ,precio} = req.body;
   try {
     if (!name || !marca) throw new Error("Name or Marca is empty");
