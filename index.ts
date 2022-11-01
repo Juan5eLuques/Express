@@ -28,13 +28,21 @@ app.post(" ", (req, res) => {
 });
 
 app.put("/product/edit", (req, res) => {  
+<<<<<<< HEAD
   const { name, marca, id, description, stock, precio} = req.body;
+=======
+  const { name, marca, id, description, stock} = req.body;
+>>>>>>> 02f7d9136a56b04bca38b370041e1fddd670b6b1
   const index = products.findIndex(product => product.id === id);
 
   if (index === -1)
     return res.status(400).json({ message: "Product not found - 400" });
 
+<<<<<<< HEAD
     products[index] = { ...products[index], name, marca,description, stock,precio};
+=======
+    products[index] = { ...products[index], name, marca,description,stock};
+>>>>>>> 02f7d9136a56b04bca38b370041e1fddd670b6b1
   res.status(200).json(products[index]);
 });
 
