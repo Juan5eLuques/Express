@@ -4,6 +4,7 @@ export type Product = {
     marca : string,
     stock : number,
     description? : string,
+    precio: number
 }
 
 export type AddProductType = Omit<Product,'id'>
